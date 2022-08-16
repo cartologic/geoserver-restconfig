@@ -846,7 +846,7 @@ class Catalog(object):
         self._cache.clear()
         return resp.json()
 
-    def publish_featuretype(self, name, store, native_crs, srs=None, jdbc_virtual_table=None, native_name=None, title=None):
+    def publish_featuretype(self, name, store, native_crs, srs=None, jdbc_virtual_table=None, native_name=None, title=None, abstract=None):
         '''Publish a featuretype from data in an existing store'''
         # @todo native_srs doesn't seem to get detected, even when in the DB
         # metadata (at least for postgis in geometry_columns) and then there
@@ -863,6 +863,7 @@ class Catalog(object):
         feature_type.dirty['nativeCRS'] = native_crs
         feature_type.enabled = True
         feature_type.advertised = True
+        feature_type.abstract = abstract
         if title is not None :
             feature_type.title = title
         else:
