@@ -1149,7 +1149,7 @@ class Catalog(object):
         styles = self.get_styles(names=name, workspaces=[workspace], recursive=recursive)
         return self._return_first_item(styles)
 
-    def create_style(self, name, data, overwrite=False, workspace=None, style_format="sld10", raw=False):
+    def create_style(self, name, data, overwrite=False, workspace=None, style_format="sld11", raw=False):
         styles = self.get_styles(names=name, workspaces=[workspace], recursive=True)
         if len(styles) > 0:
             style = styles[0]
